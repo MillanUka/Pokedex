@@ -1,4 +1,4 @@
-import { getData } from "../Constants.ts";
+import { getData } from "../Constants";
 import React, { useState, useEffect } from "react";
 export default function PokemonCard(props) {
     const [pokemon, setPokemon] = useState(null);
@@ -9,7 +9,7 @@ export default function PokemonCard(props) {
         <React.Fragment>
             {!pokemon ? <div>Loading...'</div> : <div className="card" >
                 <h3> #{pokemon.id + " " + pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}</h3>
-                <div className="portraitImage"><img src={pokemon.sprites.front_default} /> </div>
+                <div className="portraitImage"><img src={pokemon.sprites.front_default} alt={"An image of + " + pokemon.name}/> </div>
                 <div>
                     {pokemon.types.map(({type}, index) => {
                         var typeName = type.name[0].toUpperCase() + type.name.substring(1);

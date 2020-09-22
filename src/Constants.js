@@ -1,5 +1,5 @@
-export const POKE_API:String = "https://pokeapi.co/api/v2/";
-export async function getData(url: RequestInfo, setFunction:Function) {
+export const POKE_API = "https://pokeapi.co/api/v2/";
+export async function getData(url, setFunction) {
     await fetch(url)
       .then(
         async function (response) {
