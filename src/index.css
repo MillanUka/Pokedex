@@ -1,9 +1,13 @@
 .card {
-  border: 1px solid #d3d3d3;
+  border: 2px solid black;
   max-width: 25%;
   min-width: 25%;
-  max-height: 50%;
-  min-height: 50%;
+  max-height: 100%;
+  min-height: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
   align-items: center;
   text-align: center;
 }
@@ -22,8 +26,12 @@ button {
   margin-top: 5px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
   flex-wrap: wrap;
-  min-height: 100%;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin: 0 auto;
 }
 
 .Poison {

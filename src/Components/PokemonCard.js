@@ -8,14 +8,14 @@ export default function PokemonCard(props) {
     return (
         <React.Fragment>
             {!pokemon ? <div>Loading...'</div> : <div className="card" >
-                <h3> #{pokemon.id + " " + pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}</h3>
+                <h2> #{pokemon.id + " " + pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}</h2>
                 <div className="portraitImage"><img src={pokemon.sprites.front_default} /> </div>
                 <div>
                     {pokemon.types.map(({type}, index) => {
                         var typeName = type.name[0].toUpperCase() + type.name.substring(1);
                         return (
-                            <React.Fragment key={index}>
-                                <div className={typeName}>
+                            <React.Fragment key={index} >
+                                <div className={typeName} style={{fontSize: "22px"}}>
                                     {typeName}
                                 </div>
                             </React.Fragment>
@@ -34,7 +34,7 @@ export default function PokemonCard(props) {
                         );
                     })}
                 </div>
-                <div>
+                <div style={{fontSize: "22px"}}>
                     Height: {pokemon.height}
                     <br />
                     Weight: {pokemon.weight}
