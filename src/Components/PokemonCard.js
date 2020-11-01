@@ -1,45 +1,66 @@
 import { getData } from "../Constants";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./PokemonCard.css";
 export default function PokemonCard(props) {
-    const [pokemon, setPokemon] = useState(null);
-    useEffect(() => {
-        getData(props.pokemon.url, setPokemon);
-    }, [])
-    return (
-        <React.Fragment>
-            {!pokemon ? <div>Loading...'</div> : <div className="card" >
-                <h3> #{pokemon.id + " " + pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}</h3>
-                <div className="portraitImage"><img src={pokemon.sprites.front_default} alt={"An image of + " + pokemon.name}/> </div>
-                <div>
-                    {pokemon.types.map(({type}, index) => {
-                        var typeName = type.name[0].toUpperCase() + type.name.substring(1);
-                        return (
-                            <React.Fragment key={index} >
-                                <div className={typeName} style={{fontSize: "22px"}}>
-                                    {typeName}
-                                </div>
-                            </React.Fragment>
-                        );
-                    })}
-                </div>
-                <div>
-                    {pokemon.abilities.map(({ability}, index) => {
-                        var abilityName = ability.name[0].toUpperCase() + ability.name.substring(1);
-                        return (
-                            <React.Fragment key={index}>
-                                <div className="type">
-                                    {abilityName.name}
-                                </div>
-                            </React.Fragment>
-                        );
-                    })}
-                </div>
-                <div style={{fontSize: "22px"}}>
-                    Height: {pokemon.height}
-                    <br />
-                    Weight: {pokemon.weight}
-                </div>
-            </div>}
-
-        </React.Fragment>);
+  const [pokemon, setPokemon] = useState(null);
+  useEffect(() => {
+    getData(props.pokemon.url, setPokemon);
+  }, []);
+  return (
+    <React.Fragment>
+      {!pokemon ? (
+        <div>Loading...'</div>
+      ) : (
+        <Link to={"/details/" + pokemon.id}>
+          {" "}
+          <div className="card">
+            <h3>
+              {" "}
+              #
+              {pokemon.id +
+                " " +
+                pokemon.name[0].toUpperCase() +
+                pokemon.name.substring(1)}
+            </h3>
+            <div className="portraitImage">
+              <img
+                src={pokemon.sprites.front_default}
+                alt={"An image of + " + pokemon.name}
+              />{" "}
+            </div>
+            <div>
+              {pokemon.types.map(({ type }, index) => {
+                var typeName =
+                  type.name[0].toUpperCase() + type.name.substring(1);
+                return (
+                  <React.Fragment key={index}>
+                    <div className={typeName} style={{ fontSize: "22px" }}>
+                      {typeName}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            <div>
+              {pokemon.abilities.map(({ ability }, index) => {
+                var abilityName =
+                  ability.name[0].toUpperCase() + ability.name.substring(1);
+                return (
+                  <React.Fragment key={index}>
+                    <div className="type">{abilityName.name}</div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            <div style={{ fontSize: "22px" }}>
+              Height: {pokemon.height / 10}m
+              <br />
+              Weight: {pokemon.weight / 10}kg
+            </div>
+          </div>
+        </Link>
+      )}
+    </React.Fragment>
+  );
 }

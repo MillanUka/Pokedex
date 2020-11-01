@@ -1,0 +1,132 @@
+.card {
+  border: 2px solid black;
+  max-width: 30vw;
+  min-width: 30vw;
+  max-height: 100%;
+  min-height: 100%;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  align-items: center;
+  text-align: center;
+}
+
+.Poison {
+    background-color: #682A68;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Grass {
+    background-color: #4E8234;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Fire {
+    background-color: #9C531F;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Water {
+    background-color: #445E9C;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Bug {
+    background-color: #6D7815;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Flying {
+    background-color: #6D5E9C;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Normal {
+    background-color: #6D6D4E;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Rock {
+    background-color: #786824;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Ground {
+    background-color: #927D44;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Ice {
+    background-color: #638D8D;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Electric {
+    background-color: #A1871F;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Fighting {
+    background-color: #7D1F1A;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Ghost {
+    background-color: #493963;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Psychic {
+    background-color: #A13959;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Steel {
+    background-color: #787887;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Dark {
+    background-color: #49392F;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }
+  
+  .Fairy {
+    background-color: #9B6470;
+    max-width: 100%;
+    color: white;
+    text-align: center;
+  }

@@ -1,5 +1,6 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
+import "../index.css";
 export function PokemonList(props) {
   const { pokemonList } = props;
   var results = pokemonList.results;
