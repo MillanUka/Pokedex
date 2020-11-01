@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
-import { POKE_API, getData } from './Constants.ts'
+import { POKE_API, getData } from './Constants'
 import { PokemonList } from "./Components/PokemonList";
 const App = function App() {
   var url = POKE_API + "pokemon";
