@@ -3,7 +3,8 @@
 }
 
 button {
-  background-color: transparent;
+  background-color: #003A70;
+  color: white;
   border: 1px solid #2196F3;
   padding: .5rem 1rem;
   cursor: pointer;
@@ -14,7 +15,7 @@ button {
 
 .grid-container {
   text-align: center;
-  background-color: #ECECEC;
+  background-color: #FFCB05;
   margin-top: 5px;
   display: flex;
   flex-direction: row;
@@ -23,6 +24,6 @@ button {
   flex-wrap: wrap;
   margin-right: 1%;
   margin-left: 1%;
-  margin: 0 auto;
+  padding-bottom: 5%;
 }
 

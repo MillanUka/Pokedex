@@ -2,7 +2,9 @@ import { getData } from "../Constants";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonCard.css";
+import Types from "./Types";
 export default function PokemonCard(props) {
+  const {setSelectedPokemon } = props;
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
     getData(props.pokemon.url, setPokemon);
@@ -12,36 +14,26 @@ export default function PokemonCard(props) {
       {!pokemon ? (
         <div>Loading...'</div>
       ) : (
-        <Link to={"/details/" + pokemon.id}>
+        <Link to={"/details/" + pokemon.id} onClick={() => {
+          setSelectedPokemon(pokemon);
+        }}>
           {" "}
           <div className="card">
-            <h3>
+            <h1>
               {" "}
               #
               {pokemon.id +
                 " " +
                 pokemon.name[0].toUpperCase() +
                 pokemon.name.substring(1)}
-            </h3>
+            </h1>
             <div className="portraitImage">
               <img
-                src={pokemon.sprites.front_default}
-                alt={"An image of + " + pokemon.name}
+                src={pokemon.sprites.other["official-artwork"].front_default}
+                alt={"An image of " + pokemon.name} width="100%" height="100%"
               />{" "}
             </div>
-            <div>
-              {pokemon.types.map(({ type }, index) => {
-                var typeName =
-                  type.name[0].toUpperCase() + type.name.substring(1);
-                return (
-                  <React.Fragment key={index}>
-                    <div className={typeName} style={{ fontSize: "22px" }}>
-                      {typeName}
-                    </div>
-                  </React.Fragment>
-                );
-              })}
-            </div>
+            <Types types={pokemon.types} />
             <div>
               {pokemon.abilities.map(({ ability }, index) => {
                 var abilityName =
