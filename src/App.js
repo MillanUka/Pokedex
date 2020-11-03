@@ -5,10 +5,11 @@ import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import PokemonDetails from "./Components/PokemonDetails";
+import AbilitiesDetails from "./Components/AbilityDetails";
 const App = function App() {
-  var url = POKE_API + "pokemon";
   const [pokemonList, setPokemonList] = useState(null);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [selectedAbility, setSelectedAbility] = useState(null);
   useEffect(() => {
     getData(POKE_API + "pokemon", setPokemonList);
   }, []);
@@ -20,14 +21,19 @@ const App = function App() {
           <Route path="/details">
             <PokemonDetails pokemon={selectedPokemon} />
           </Route>
+          <Route path="/ability">
+            <div>
+              <AbilitiesDetails ability={selectedAbility}/>
+            </div>
+          </Route>
           <Route path="/">
             {!pokemonList ? (
-              <div>Loading...'</div>
+              <div>Loading...</div>
             ) : (
               <React.Fragment>
                 <div className="grid-container">
                   <React.Fragment>
-                    <PokemonList pokemonList={pokemonList} setSelectedPokemon={setSelectedPokemon} />
+                    <PokemonList pokemonList={pokemonList} setSelectedPokemon={setSelectedPokemon} setSelectedAbility={setSelectedAbility}/>
                   </React.Fragment>
                   <br />
                 </div>

@@ -1,0 +1,20 @@
+body {
+    background-color: #FFCB05;
+}
+
+.content {
+    background-color: cornsilk;
+    color: #3D7DCA;
+    font-family: Arial, Helvetica, sans-serif;
+    text-overflow: clip;
+    margin: auto;
+}
+
+.abilityDetails {
+    border: 6px dotted #003A70;
+}
+
+.details {
+    text-align: justify; 
+    font-size: larger;
+}

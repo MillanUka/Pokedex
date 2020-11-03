@@ -6,7 +6,7 @@ export default function Types(props) {
       {types.map(({ type }, index) => {
         var typeName = type.name[0].toUpperCase() + type.name.substring(1);
         return (
-          <React.Fragment className={"type"} key={index}>
+          <React.Fragment key={index}>
             <div className={typeName} style={{ fontSize: "22px" }}>
               {typeName}
             </div>

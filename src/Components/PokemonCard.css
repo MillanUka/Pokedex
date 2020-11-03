@@ -26,6 +26,11 @@
   color: #3D7DCA;
 }
 
+.ability {
+  border: black solid 1px;
+  background-color: whitesmoke;
+}
+
 .Poison {
     background-color: #682A68;
     max-width: 100%;
