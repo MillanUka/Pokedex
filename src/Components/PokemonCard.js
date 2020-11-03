@@ -46,6 +46,7 @@ export default function PokemonCard(props) {
             <br />
             Weight: {pokemon.weight / 10}kg
           </div>
+          
         </div>
       )}
     </React.Fragment>

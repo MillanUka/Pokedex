@@ -3,7 +3,7 @@ import { POKE_API, getData } from "../Constants";
 import Types from "./Types";
 import "./PokemonDetails.css";
 import { Link } from "react-router-dom";
-
+import Stats from "./Stats";
 export default function PokemonDetails(props) {
   const { pokemon } = props;
   const [pokemonData, setPokemonData] = useState(null);
@@ -40,7 +40,9 @@ export default function PokemonDetails(props) {
           Weight: {pokemon.weight / 10}kg
           <br />
         </div>
-        <div></div>
+        <div className={"stats"}>
+        <Stats stats={pokemon.stats}/>
+        </div>
       </div>
     </div>
   );
