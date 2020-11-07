@@ -7,7 +7,6 @@ export default function Abilities(props) {
   const [abilityData, setAbilityData] = useState(null);
   useEffect(() => {
     getData(ability.url, setAbilityData);
-    console.log(abilityData);
   }, []);
   return (
     <div className={"content"}>
@@ -15,19 +14,32 @@ export default function Abilities(props) {
         <div>Back</div>
       </Link>
       <div className={"abilityDetails"}>
-        <h1>{ability.name}</h1>
+        <h1>{ability.name[0].toUpperCase() + ability.name.substring(1)}</h1>
         {!abilityData ? (
           <div>Loading...</div>
         ) : (
           <div>
             {abilityData.flavor_text_entries[0].flavor_text}
-            {abilityData.pokemon.map(({ pokemon }, index) => {
-              return (
-                <React.Fragment key={abilityData.pokemon[index].name}>
-                  <h4>{abilityData.pokemon[index].name}</h4>
-                </React.Fragment>
-              );
-            })}
+            <div className={"pokemonList"}>
+              <h3>Pokemon with {ability.name}</h3>
+              <table>
+                <tr>
+                  <th>Number</th>
+                  <th>Name</th>
+                </tr>
+                {abilityData.pokemon.map(({ pokemon }, index) => {
+                  console.log(abilityData.pokemon[index]);
+                  return (
+                    <React.Fragment key={abilityData.pokemon[index].name}>
+                      <tr>
+                        <td>{index + 1}</td>
+                        <td>{abilityData.pokemon[index].pokemon.name}</td>
+                      </tr>
+                    </React.Fragment>
+                  );
+                })}
+              </table>
+            </div>
           </div>
         )}
       </div>

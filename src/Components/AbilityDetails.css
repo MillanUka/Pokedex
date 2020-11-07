@@ -1,20 +1,35 @@
 body {
-    background-color: #FFCB05;
+  background-color: #ffcb05;
 }
 
 .content {
-    background-color: cornsilk;
-    color: #3D7DCA;
-    font-family: Arial, Helvetica, sans-serif;
-    text-overflow: clip;
-    margin: auto;
+  background-color: cornsilk;
+  color: #3d7dca;
+  font-family: Arial, Helvetica, sans-serif;
+  text-overflow: clip;
+  margin: auto;
 }
 
 .abilityDetails {
-    border: 6px dotted #003A70;
+  border: 6px dotted #003a70;
 }
 
 .details {
-    text-align: justify; 
-    font-size: larger;
+  text-align: left;
+  font-size: larger;
+}
+
+table, th, td {
+    margin-left: 25%;
+    padding: 2%;
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+.pokemonList {
+    text-align: center;
+    align-content: center;
+    align-items: center;
 }
