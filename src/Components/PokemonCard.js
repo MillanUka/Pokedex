@@ -13,7 +13,7 @@ export default function PokemonCard(props) {
   return (
     <React.Fragment>
       {!pokemon ? (
-        <div>Loading...'</div>
+        <div>Loading...</div>
       ) : (
         <div className="card">
           <Link

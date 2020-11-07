@@ -18,3 +18,7 @@ export async function getData(url, setFunction) {
         console.log("There was a problem")
       });
   }
+
+  export async function removePunctuation(originalString) {
+
+  }
