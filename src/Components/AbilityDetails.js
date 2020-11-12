@@ -33,12 +33,13 @@ export default function Abilities(props) {
                     <React.Fragment key={abilityData.pokemon[index].name}>
                       <tr>
                         <td>{index + 1}</td>
-                        <td>{abilityData.pokemon[index].pokemon.name}</td>
+                        <td>{abilityData.pokemon[index].pokemon.name[0].toUpperCase() + abilityData.pokemon[index].pokemon.name.substring(1)}</td>
                       </tr>
                     </React.Fragment>
                   );
                 })}
               </table>
+              <br />
             </div>
           </div>
         )}

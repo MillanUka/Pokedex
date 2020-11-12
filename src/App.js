@@ -17,10 +17,10 @@ const App = function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="Pokedex/details">
+          <Route path="/Pokedex/details">
             <PokemonDetails pokemon={selectedPokemon} />
           </Route>
-          <Route path="Pokedex/ability">
+          <Route path="/Pokedex/ability">
             <div>
               <AbilitiesDetails ability={selectedAbility}/>
             </div>
