@@ -9,7 +9,7 @@ export default function Abilities(props) {
           ability.name[0].toUpperCase() + ability.name.substring(1);
         return (
           <React.Fragment key={index}>
-            <Link to={"/ability/" + ability.name} onClick={() => {
+            <Link to={"Pokedex/ability/" + ability.name} onClick={() => {
                 setSelectedAbility(ability);
             }}>
               <div className="ability">{abilityName}</div>

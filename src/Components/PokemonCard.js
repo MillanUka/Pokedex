@@ -17,7 +17,7 @@ export default function PokemonCard(props) {
       ) : (
         <div className="card">
           <Link
-            to={"/details/" + pokemon.id}
+            to={"Pokedex/details/" + pokemon.id}
             onClick={() => {
               setSelectedPokemon(pokemon);
             }}

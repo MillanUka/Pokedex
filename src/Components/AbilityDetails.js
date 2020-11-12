@@ -10,7 +10,7 @@ export default function Abilities(props) {
   }, []);
   return (
     <div className={"content"}>
-      <Link to={"/"}>
+      <Link to={"/Pokedex"}>
         <div>Back</div>
       </Link>
       <div className={"abilityDetails"}>

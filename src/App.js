@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import { POKE_API, getData } from "./Constants";
 import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,15 +17,15 @@ const App = function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/details">
+          <Route path="Pokedex/details">
             <PokemonDetails pokemon={selectedPokemon} />
           </Route>
-          <Route path="/ability">
+          <Route path="Pokedex/ability">
             <div>
               <AbilitiesDetails ability={selectedAbility}/>
             </div>
           </Route>
-          <Route path="/">
+          <Route path="/Pokedex">
             {!pokemonList ? (
               <div>Loading...</div>
             ) : (
