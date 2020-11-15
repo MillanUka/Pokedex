@@ -34,7 +34,7 @@ export default function PokemonCard(props) {
             </h1>
             <div className="portraitImage">
               <img
-                src={pokemon.sprites.other["official-artwork"].front_default}
+                src={(!pokemon.sprites.other["official-artwork"].front_default ?  pokemon.sprites.front_default : pokemon.sprites.other["official-artwork"].front_default)}
                 alt={"An image of " + pokemon.name}
                 width="100%"
                 height="100%"

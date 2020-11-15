@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { POKE_API, getData, searchPokemon } from "./Utils";
+import {
+  POKE_API,
+  getData,
+  searchPokemon,
+  getPokemonData,
+  getPokemonDataFromArray,
+} from "./Utils";
 import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
@@ -11,7 +17,7 @@ const App = function App() {
   const [selectedAbility, setSelectedAbility] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
-    getData(POKE_API + "pokemon/?limit=40", setPokemonList);
+    getData(POKE_API + "pokemon/?limit=20", setPokemonList);
   }, []);
   return (
     <div className="App">
@@ -22,9 +28,21 @@ const App = function App() {
           setSearchQuery(e.target.value);
         }}
       />{" "}
-      <button className={"searchButton"} onClick={() => {
-        console.log(searchPokemon(searchQuery));
-      }}>Search</button>
+      <button
+        className={"searchButton"}
+        onClick={async () => {
+          var pokemonArr = searchPokemon(searchQuery);
+          if (pokemonArr[0] !== undefined) {
+            var pokemonData = { results: pokemonArr[0] };
+            console.log(pokemonData);
+            setPokemonList(pokemonData);
+          } else {
+            alert("No results!");
+          }
+        }}
+      >
+        Search
+      </button>
       <Router>
         <Switch>
           <Route path="/Pokedex/details">
