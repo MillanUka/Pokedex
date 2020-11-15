@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { POKE_API, getData } from "./Constants";
+import { POKE_API, getData } from "./Utils";
 import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";

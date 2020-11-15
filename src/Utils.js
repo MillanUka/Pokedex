@@ -8,13 +8,14 @@ export async function getData(url, setFunction) {
               response.status);
             return;
           }
-          
+
           await response.json().then(function (data) {
             setFunction(data);
           });
         }
       )
       .catch(function (err) {
+        console.log(url)
         console.log("There was a problem")
       });
   }

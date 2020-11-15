@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import Types from "./Types";
 import "./PokemonDetails.css";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
 export default function PokemonDetails(props) {
-  const { pokemon } = props;
+  const pokemonData = useRef(props.pokemon);
+  var pokemon = pokemonData.current;
+  if(pokemon === null) {
+    pokemon = JSON.parse(localStorage.getItem("pokemon"));
+  } else {
+    localStorage.setItem("pokemon", JSON.stringify(pokemon));
+  }
   return (
     <div className={"content"}>
       <Link to={"/Pokedex"}>
