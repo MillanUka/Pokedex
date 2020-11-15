@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { POKE_API, getData } from "./Utils";
+import { POKE_API, getData, searchPokemon } from "./Utils";
 import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
@@ -23,7 +23,7 @@ const App = function App() {
         }}
       />{" "}
       <button className={"searchButton"} onClick={() => {
-        console.log(searchQuery);
+        console.log(searchPokemon(searchQuery));
       }}>Search</button>
       <Router>
         <Switch>
