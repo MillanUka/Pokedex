@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-button {
+.cycleButton {
   background-color: #003A70;
   color: white;
   border: 1px solid #2196F3;
@@ -11,6 +11,23 @@ button {
   border-radius: .25rem;
   min-height: 100px;
   min-width: 150px;
+}
+
+.searchInput {
+  min-width: 50%;
+  min-height: 2vw;
+  border: black 2px solid;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+.searchButton {
+  background-color: teal;
+  color: white;
+  border: black 1px solid;
+  min-height: 2vw;
+  max-width: 50%;
+  max-height: 10%;
 }
 
 .grid-container {

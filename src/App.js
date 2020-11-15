@@ -10,11 +10,12 @@ const App = function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [selectedAbility, setSelectedAbility] = useState(null);
   useEffect(() => {
-    getData(POKE_API + "pokemon", setPokemonList);
+    getData(POKE_API + "pokemon/?limit=40", setPokemonList);
   }, []);
 
   return (
     <div className="App">
+      <input className={"searchInput"} type="text"/> <button className={"searchButton"}>Search</button>
       <Router>
         <Switch>
           <Route path="/Pokedex/details">
@@ -37,14 +38,14 @@ const App = function App() {
                   <br />
                 </div>
                 <button
-                  className="prevButton"
+                  className="cycleButton"
                   disabled={pokemonList.previous == null}
                   onClick={() => getData(pokemonList.previous, setPokemonList)}
                 >
                   Prev
                 </button>
                 <button
-                  className="nextButton"
+                  className="cycleButton"
                   disabled={pokemonList.next == null}
                   onClick={() => getData(pokemonList.next, setPokemonList)}
                 >
