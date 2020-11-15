@@ -44,5 +44,3 @@ export function searchPokemon(query) {
     return item.name.includes(query);
   });
 }
-
-console.log(splitArray([1, 2, 3, 4], 3));
