@@ -1,4 +1,8 @@
+
+import data from "./data/pokemon-list.json";
+
 export const POKE_API = "https://pokeapi.co/api/v2/";
+
 export async function getData(url, setFunction) {
     await fetch(url)
       .then(
@@ -22,4 +26,10 @@ export async function getData(url, setFunction) {
 
   export function removePunctuation(originalString, replaceChar) {
     return originalString.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, replaceChar);
+  }
+
+  function searchPokemon(query) {
+    return data.results.filter((item) => {
+      return item.name.includes(query);
+    })
   }
