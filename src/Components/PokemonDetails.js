@@ -3,10 +3,11 @@ import Types from "./Types";
 import "./PokemonDetails.css";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
+import { removePunctuation } from "../Utils";
 export default function PokemonDetails(props) {
   const pokemonData = useRef(props.pokemon);
   var pokemon = pokemonData.current;
-  if(pokemon === null) {
+  if (pokemon === null) {
     pokemon = JSON.parse(localStorage.getItem("pokemon"));
   } else {
     localStorage.setItem("pokemon", JSON.stringify(pokemon));
@@ -14,9 +15,7 @@ export default function PokemonDetails(props) {
   return (
     <div className={"content"}>
       <Link to={"/Pokedex"}>
-        <div>
-        Back
-        </div>
+        <div>Back</div>
       </Link>
       <div className={"pokemonDetails"}>
         <h1>
@@ -24,8 +23,10 @@ export default function PokemonDetails(props) {
           #
           {pokemon.id +
             " " +
-            pokemon.name[0].toUpperCase() +
-            pokemon.name.substring(1)}
+            removePunctuation(
+              pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
+              " "
+            )}
         </h1>
         <div className="portraitImage">
           <img
@@ -44,7 +45,7 @@ export default function PokemonDetails(props) {
           <br />
         </div>
         <div className={"stats"}>
-        <Stats stats={pokemon.stats}/>
+          <Stats stats={pokemon.stats} />
         </div>
       </div>
     </div>

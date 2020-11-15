@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./AbilityDetails.css";
-import { getData } from "../Utils";
+import { getData, removePunctuation } from "../Utils";
 export default function Abilities(props) {
   const ability = useRef(props.ability);
   const [abilityData, setAbilityData] = useState(null);
@@ -13,10 +13,12 @@ export default function Abilities(props) {
     }
     getData(data.current.url, setAbilityData);
   }, []);
+
   if (abilityData === null) {
     return <div>Loading...</div>;
   } else {
     localStorage.setItem("ability", JSON.stringify(ability));
+    var abilityName;
     return (
       <div className={"content"}>
         <Link to={"/Pokedex"}>
@@ -28,12 +30,12 @@ export default function Abilities(props) {
           ) : (
             <div>
               <h1>
-                {abilityData.name[0].toUpperCase() +
-                  abilityData.name.substring(1)}
+                {abilityName = removePunctuation(abilityData.name[0].toUpperCase() +
+                  abilityData.name.substring(1), " ")}
               </h1>
               {abilityData.flavor_text_entries[0].flavor_text}
               <div className={"pokemonList"}>
-                <h3>Pokemon with {ability.name}</h3>
+                <h3>Pokemon with {abilityName}</h3>
                 <table>
                   <tr>
                     <th>Number</th>
@@ -45,12 +47,12 @@ export default function Abilities(props) {
                         <tr>
                           <td>{index + 1}</td>
                           <td>
-                            {abilityData.pokemon[
+                            {removePunctuation(abilityData.pokemon[
                               index
                             ].pokemon.name[0].toUpperCase() +
                               abilityData.pokemon[index].pokemon.name.substring(
                                 1
-                              )}
+                              ), " ")}
                           </td>
                         </tr>
                       </React.Fragment>

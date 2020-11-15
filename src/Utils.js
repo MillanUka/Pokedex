@@ -20,6 +20,6 @@ export async function getData(url, setFunction) {
       });
   }
 
-  export async function removePunctuation(originalString) {
-
+  export function removePunctuation(originalString, replaceChar) {
+    return originalString.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, replaceChar);
   }

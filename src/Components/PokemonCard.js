@@ -1,4 +1,4 @@
-import { getData } from "../Utils";
+import { getData, removePunctuation } from "../Utils";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonCard.css";
@@ -27,8 +27,10 @@ export default function PokemonCard(props) {
               #
               {pokemon.id +
                 " " +
-                pokemon.name[0].toUpperCase() +
-                pokemon.name.substring(1)}
+                removePunctuation(
+                  pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
+                  " "
+                )}
             </h1>
             <div className="portraitImage">
               <img
@@ -40,13 +42,15 @@ export default function PokemonCard(props) {
             </div>
           </Link>
           <Types types={pokemon.types} />
-          <Abilities abilities={pokemon.abilities} setSelectedAbility={setSelectedAbility}/>
+          <Abilities
+            abilities={pokemon.abilities}
+            setSelectedAbility={setSelectedAbility}
+          />
           <div style={{ fontSize: "22px" }}>
             Height: {pokemon.height / 10}m
             <br />
             Weight: {pokemon.weight / 10}kg
           </div>
-          
         </div>
       )}
     </React.Fragment>
