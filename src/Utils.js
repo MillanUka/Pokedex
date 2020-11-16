@@ -13,7 +13,6 @@ export async function getData(url, setFunction) {
       }
 
       await response.json().then(function (data) {
-        console.log(data)
         setFunction(data);
       });
     })

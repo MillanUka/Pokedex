@@ -6,7 +6,6 @@ export default function Abilities(props) {
   return (
     <div>
       {abilities.map(({ ability }, index) => {
-        
         var abilityName = removePunctuation(ability.name[0].toUpperCase() + ability.name.substring(1), " ");
         return (
           <React.Fragment key={index}>

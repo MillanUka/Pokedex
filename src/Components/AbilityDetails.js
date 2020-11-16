@@ -30,34 +30,46 @@ export default function Abilities(props) {
           ) : (
             <div>
               <h1>
-                {abilityName = removePunctuation(abilityData.name[0].toUpperCase() +
-                  abilityData.name.substring(1), " ")}
+                {
+                  (abilityName = removePunctuation(
+                    abilityData.name[0].toUpperCase() +
+                      abilityData.name.substring(1),
+                    " "
+                  ))
+                }
               </h1>
               {abilityData.flavor_text_entries[0].flavor_text}
               <div className={"pokemonList"}>
                 <h3>Pokemon with {abilityName}</h3>
                 <table>
-                  <tr>
-                    <th>Number</th>
-                    <th>Name</th>
-                  </tr>
-                  {abilityData.pokemon.map(({ pokemon }, index) => {
-                    return (
-                      <React.Fragment key={abilityData.pokemon[index].name}>
-                        <tr>
-                          <td>{index + 1}</td>
-                          <td>
-                            {removePunctuation(abilityData.pokemon[
-                              index
-                            ].pokemon.name[0].toUpperCase() +
-                              abilityData.pokemon[index].pokemon.name.substring(
-                                1
-                              ), " ")}
-                          </td>
-                        </tr>
-                      </React.Fragment>
-                    );
-                  })}
+                  <thead>
+                    <tr>
+                      <th>Number</th>
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {abilityData.pokemon.map(({ pokemon }, index) => {
+                      return (
+                        <React.Fragment key={abilityData.pokemon[index].name}>
+                          <tr>
+                            <td>{index + 1}</td>
+                            <td>
+                              {removePunctuation(
+                                abilityData.pokemon[
+                                  index
+                                ].pokemon.name[0].toUpperCase() +
+                                  abilityData.pokemon[
+                                    index
+                                  ].pokemon.name.substring(1),
+                                " "
+                              )}
+                            </td>
+                          </tr>
+                        </React.Fragment>
+                      );
+                    })}
+                  </tbody>
                 </table>
                 <br />
               </div>

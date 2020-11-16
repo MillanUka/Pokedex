@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import {
   POKE_API,
   getData,
-  searchPokemon,
-  getPokemonData,
-  getPokemonDataFromArray,
+  searchPokemon
 } from "./Utils";
 import { PokemonList } from "./Components/PokemonList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import PokemonDetails from "./Components/PokemonDetails";
 import AbilitiesDetails from "./Components/AbilityDetails";
+
 const App = function App() {
   const [pokemonList, setPokemonList] = useState(null);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -33,7 +32,7 @@ const App = function App() {
         onClick={async () => {
           var pokemonArr = searchPokemon(searchQuery);
           if (pokemonArr[0] !== undefined) {
-            var pokemonData = { results: pokemonArr[0] };
+            var pokemonData = { results: pokemonArr[0], previous : null, next : pokemonArr[1]};
             console.log(pokemonData);
             setPokemonList(pokemonData);
           } else {
@@ -70,15 +69,30 @@ const App = function App() {
                 </div>
                 <button
                   className="cycleButton"
-                  disabled={pokemonList.previous == null}
-                  onClick={() => getData(pokemonList.previous, setPokemonList)}
+                  disabled={pokemonList.previous === null || pokemonList.previous === undefined}
+                  onClick={() => {
+                    if(pokemonList.previous.length) {
+                      var newPokemonList = { results: pokemonList.previous, previous : null, next : pokemonList.results}
+                      setPokemonList(newPokemonList); 
+                    } else {
+                    getData(pokemonList.previous, setPokemonList);
+                    }
+                  }}
                 >
                   Prev
                 </button>
                 <button
                   className="cycleButton"
-                  disabled={pokemonList.next == null}
-                  onClick={() => getData(pokemonList.next, setPokemonList)}
+                  disabled={pokemonList.next === null  || pokemonList.next === undefined}
+                  onClick={() => {
+                    console.log(pokemonList);
+                    if(pokemonList.next.length) {
+                      var newPokemonList = { results: pokemonList.next, previous : pokemonList.results, next : null}
+                      setPokemonList(newPokemonList); 
+                    } else {
+                    getData(pokemonList.next, setPokemonList);
+                    }
+                  }}
                 >
                   Next
                 </button>

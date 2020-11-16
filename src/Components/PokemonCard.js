@@ -9,7 +9,7 @@ export default function PokemonCard(props) {
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
     getData(props.pokemon.url, setPokemon);
-  }, []);
+  });
   return (
     <React.Fragment>
       {!pokemon ? (
