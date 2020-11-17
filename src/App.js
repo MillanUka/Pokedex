@@ -15,6 +15,8 @@ const App = function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [selectedAbility, setSelectedAbility] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [pokemonArr, setPokemonArr] = useState([]);
+  const [index, setIndex] = useState(0);
   useEffect(() => {
     getData(POKE_API + "pokemon/?limit=20", setPokemonList);
   }, []);
@@ -30,9 +32,10 @@ const App = function App() {
       <button
         className={"searchButton"}
         onClick={async () => {
-          var pokemonArr = searchPokemon(searchQuery);
-          if (pokemonArr[0] !== undefined) {
-            var pokemonData = { results: pokemonArr[0], previous : null, next : pokemonArr[1]};
+          var tempPokemonArr = searchPokemon(searchQuery);
+          setPokemonArr(tempPokemonArr);
+          if (tempPokemonArr[0] !== undefined) {
+            var pokemonData = { results: tempPokemonArr[0], previous : null, next : tempPokemonArr[1]};
             console.log(pokemonData);
             setPokemonList(pokemonData);
           } else {
@@ -72,7 +75,8 @@ const App = function App() {
                   disabled={pokemonList.previous === null || pokemonList.previous === undefined}
                   onClick={() => {
                     if(pokemonList.previous.length) {
-                      var newPokemonList = { results: pokemonList.previous, previous : null, next : pokemonList.results}
+                      setIndex(index-1);
+                      var newPokemonList = { results: pokemonList.previous, previous : pokemonArr[index-2], next : pokemonList.results}
                       setPokemonList(newPokemonList); 
                     } else {
                     getData(pokemonList.previous, setPokemonList);
@@ -85,9 +89,9 @@ const App = function App() {
                   className="cycleButton"
                   disabled={pokemonList.next === null  || pokemonList.next === undefined}
                   onClick={() => {
-                    console.log(pokemonList);
                     if(pokemonList.next.length) {
-                      var newPokemonList = { results: pokemonList.next, previous : pokemonList.results, next : null}
+                      setIndex(index+1);
+                      var newPokemonList = { results: pokemonList.next, previous : pokemonList.results, next : pokemonArr[index+2]}
                       setPokemonList(newPokemonList); 
                     } else {
                     getData(pokemonList.next, setPokemonList);
