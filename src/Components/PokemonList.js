@@ -4,6 +4,7 @@ import "../index.css";
 export function PokemonList(props) {
   const { pokemonList, setSelectedPokemon, setSelectedAbility } = props;
   var results = pokemonList.results;
+  console.log(pokemonList)
   if (results != null) {
     return results.map(({ pokemon }, index) => {
       return (

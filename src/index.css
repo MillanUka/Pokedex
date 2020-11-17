@@ -3,14 +3,24 @@
 }
 
 .cycleButton {
-  background-color: #003A70;
+  background-color: #003a70;
   color: white;
-  border: 1px solid #2196F3;
-  padding: .5rem 1rem;
+  border: 1px solid #2196f3;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   min-height: 100px;
   min-width: 150px;
+}
+
+.back-search {
+  font-size: xx-large;
+  background-color: #003a70;
+  color: white;
+  position: absolute;
+  margin-left: 2%;
+  left: 0;
+  margin-bottom: 5%;
 }
 
 .searchInput {
@@ -22,6 +32,7 @@
 }
 
 .searchButton {
+  font-size: medium;
   background-color: teal;
   color: white;
   border: black 1px solid;
@@ -30,9 +41,18 @@
   max-height: 10%;
 }
 
+.back {
+  font-size: x-large;
+  padding: 1%;
+  border: 1px black solid;
+  background-color: #003a70;
+  color: white;
+  min-height: 2rem;
+}
+
 .grid-container {
   text-align: center;
-  background-color: #FFCB05;
+  background-color: #ffcb05;
   margin-top: 5px;
   display: flex;
   flex-direction: row;
@@ -44,3 +64,8 @@
   padding-bottom: 5%;
 }
 
+@media all and (max-width: 475px) {
+  .back-search {
+    display: none;
+  }
+}

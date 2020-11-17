@@ -22,7 +22,7 @@ export default function Abilities(props) {
     return (
       <div className={"content"}>
         <Link to={"/Pokedex"}>
-          <div>Back</div>
+          <div className={"back"}>Back</div>
         </Link>
         <div className={"abilityDetails"}>
           {!abilityData ? (

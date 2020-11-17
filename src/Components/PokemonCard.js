@@ -46,7 +46,7 @@ export default function PokemonCard(props) {
             abilities={pokemon.abilities}
             setSelectedAbility={setSelectedAbility}
           />
-          <div style={{ fontSize: "22px" }}>
+          <div className={"metrics"}>
             Height: {pokemon.height / 10}m
             <br />
             Weight: {pokemon.weight / 10}kg
